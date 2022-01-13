@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Displaying infoooo from JSON string blahabla</h1>
+
+<p id="demo"></p>
+
+<script>
+const json = '{"products":[' +
+'{"id":"1","name":"T-shirt","price":"20","image":"X","gender":"Man","color":"White","size":"10","theme":"Summer" },' +
+'{"id":"2","name":"T-Shirt","price":"15","image":"X","gender":"Woman","color":"Blue","size":"8","theme":"Winter" }]}';
+
+obj = JSON.parse(json);
+document.getElementById("demo").innerHTML =
+obj.products[0].name + "<br>" + 
+obj.products[0].price + "<br>" +
+obj.products[0].image + "<br>" +
+obj.products[0].gender + "<br>" +
+obj.products[0].color + "<br>" +
+obj.products[0].size + "<br>" +
+obj.products[0].theme;
+</script>
+
+</body>
+</html>
