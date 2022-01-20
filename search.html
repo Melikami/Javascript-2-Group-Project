@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+
+<body>
+
+
+
+    <div class="form-container">
+        <form class="form">
+            <input id="search-product" type="text" class="input" placeholder="search.." />
+
+        </form>
+    </div>
+    <div class="results-container">
+        <h3>Resultat</h3>
+        <ul class="results-list" id="users-list"></ul>
+        <ul class="list" id="list"></ul>
+    </div>
+
+
+
+
+
+
+    <script>
+        //json-data
+        const myJSON = '{"products":[' +
+            '{"id":"1","name":"T-shirt","price":"20","image":"X","gender":"Man","color":"White","size":"10","theme":"Summer" },' +
+            '{"id":"2","name":"T-Shirt","price":"15","image":"X","gender":"Woman","color":"Blue","size":"8","theme":"Winter" }]}';
+        // gör om till en objekt literal
+        const db = JSON.parse(myJSON);
+
+        //koppla en variable till ett element
+        var ul = document.getElementById("users-list");
+        //funktion för skriva ut sökresultat
+        function render_lists(lists) {
+            var li = "";
+            for (index in lists) {
+                li += "</br>" + JSON.stringify(lists[index]);
+            }
+            ul.innerHTML = li;
+        }
+        //kopplar variabel till sökfältselementet
+        var input = document.getElementById('search-product');
+        //funktion för att matcha en sökord mot databasen och skriva ut resultatet
+        function filterProd(event) {
+            //event.preventDefault()
+
+            //variabel som kopplats till inskrivet värde. Trim = tar bort mellanslag
+            var searchVal = input.value.toLowerCase().trim();
+
+            //tom array
+            var results = [];
+            //for loop som tittar igenom databasen. Varje if statement matchar inskrivet värde mot ett produktattribut
+            for (var i = 0; i < db.products.length; i++) {
+                if (db.products[i].name.toLowerCase().trim().includes(searchVal)) {
+                    results.push(db.products[i]);
+                }
+                if (db.products[i].color.toLowerCase().trim().includes(searchVal)) {
+                    results.push(db.products[i]);
+                }
+                if (db.products[i].theme.toLowerCase().trim().includes(searchVal)) {
+                    results.push(db.products[i]);
+                }
+            }
+            //alla produkter ska vara utskrivna som default. Sökningen begränsar.
+            if (searchVal.length == 0) {
+                results = db.products;
+            }
+            //säkerställer att det inte är några dubbletter i ett sökresultat
+            results = [...new Set(results)];
+
+            console.log(results)
+                //skriver ut resultat på sidan
+            render_lists(results);
+        }
+        //anropar filterprod varje gång jag skriver något i sökfältet
+        input.addEventListener('keyup', filterProd);
+
+        //visnar alla produkter innan jag börjar söka. 
+        render_lists(db.products);
+    </script>
+
+
+</body>
+
+</html>
