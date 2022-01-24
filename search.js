@@ -26,8 +26,7 @@ function render_lists(result) {
     for (index in result) {
         li += //"</br>" + "<div class='test'>" + JSON.stringify(result[index]) + "</div>";
 
-            //document.getElementById("demo").innerHTML =
-            "<div class='prod'>" + "<div class='image'>" + "<img src=" + db.products[index].image + ">" + "</img>" + "</div>" +
+            "<div class='prod'>" + "<div class='image'>" + "<img src=" + db.products[index].image + ">" + "</img>" + "</div>" + "<div class='prod-text'>" +
             "<div class='name'>" +
             result[index].name + "</div>" +
             "<div class='price'>" +
@@ -36,11 +35,12 @@ function render_lists(result) {
             result[index].gender + "</div>" +
             "<div class='color'>" +
             result[index].color + "</div>" +
-            "<div class='size'>" +
-            result[index].size + "</div>" +
+            // "<div class='size'>" +
+            // result[index].size + "</div>" +
             "<div class='theme'>" +
             result[index].theme + "</div>" +
-            "<br>" + '</div>';
+            //"<br>" +
+            '</div>' + "</div>";
     }
     ul.innerHTML = li;
 }
@@ -84,3 +84,7 @@ input.addEventListener('keyup', filterProd);
 
 //visar alla produkter innan jag börjar söka. 
 render_lists(db.products);
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
