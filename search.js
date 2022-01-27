@@ -1,3 +1,9 @@
+var dbAsJson = window.localStorage.getItem("mydb");
+console.log(dbAsJson);
+var db = JSON.parse(dbAsJson);
+console.log(db);
+
+/*
 const myJSON =
 
     '{"products":[' +
@@ -13,10 +19,9 @@ const myJSON =
     '{"id":"10","name":"T-shirt","price":"20","image":"img/shirt10.jpg","gender":"Man","color":"Black","size":"10","theme":"Winter" },' +
     '{"id":"11","name":"T-shirt","price":"30","image":"img/shirt11.jpg","gender":"Man","color":"White","size":"10","theme":"Summer" },' +
     '{"id":"12","name":"T-Shirt","price":"25","image":"img/shirt12.jpg","gender":"Man","color":"Black","size":"10","theme":"Fall" }]}';
-
-
+*/
 //json-data
-const db = JSON.parse(myJSON);
+//const db = JSON.parse(myJSON);
 
 //koppla en variable till ett element
 var ul = document.getElementById("products-list");
