@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleProduct.css">
+    <title>Produktsida</title>
+</head>
+
+<body>
+
+
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/logo.png" class="logo" alt="">
+                </div>
+                <nav>
+                    <ul id="Menu">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Products</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+
+                    <a href="shoppingcart.html">
+                        <img src="img/bag.png" class="cart" alt="cart">
+                    </a>
+                    <div class="dropdown"></div>
+                    <section class="container-dropdown">
+
+                        <button onclick="myFunction()" class="dropbtn">Search product</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <form>
+                                <input type="text" placeholder="Sök produkter" id="search-product">
+                                <ul id="products-list"></ul>
+                            </form>
+                        </div>
+
+                    </section>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="rubrik">
+
+        <h2>Våra härliga produkter</h2>
+
+    </div>
+
+    <div id="stuff">
+
+    </div>
+
+
+    <script src="products.js"></script>
+    <script src="storingjason.js"></script>
+    <script src="search.js"></script>
+    <button onclick="console.log(enArray)">enArray</button>
+    <script>
+        document.getElementById("random").innerHTML = db.products[0].theme;
+    </script>
+</body>
+
+</html>
+‹

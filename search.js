@@ -30,8 +30,7 @@ function render_lists(result) {
     var li = "";
     for (index in result) {
         li += //"</br>" + "<div class='test'>" + JSON.stringify(result[index]) + "</div>";
-
-            "<div class='prod'>" + "<div class='image'>" + "<img src=" + db.products[index].image + ">" + "</img>" + "</div>" + "<div class='prod-text'>" +
+            "<div class='prod'>" + "<img class='small-img' src=" + db.products[index].image + ">" + "</img>" + +"<div class='prod-text'>" +
             "<div class='name'>" +
             result[index].name + "</div>" +
             "<div class='price'>" +
