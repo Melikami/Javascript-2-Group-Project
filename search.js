@@ -22,7 +22,9 @@ const myJSON =
 */
 //json-data
 //const db = JSON.parse(myJSON);
-
+function Redirect(x) {
+    window.location = "product" + x + ".html";
+}
 //koppla en variable till ett element
 var ul = document.getElementById("products-list");
 //funktion för skriva ut sökresultat
@@ -30,7 +32,7 @@ function render_lists(result) {
     var li = "";
     for (index in result) {
         li += //"</br>" + "<div class='test'>" + JSON.stringify(result[index]) + "</div>";
-            "<div class='prod'>" + "<img class='small-img' src=" + db.products[index].image + ">" + "</img>" + +"<div class='prod-text'>" +
+            "<div class='prod'>" + "<img class='small-img' src=" + db.products[index].image + ">" + "</img>" + "<div class='prod-text'>" +
             "<div class='name'>" +
             result[index].name + "</div>" +
             "<div class='price'>" +
@@ -42,9 +44,11 @@ function render_lists(result) {
             // "<div class='size'>" +
             // result[index].size + "</div>" +
             "<div class='theme'>" +
-            result[index].theme + "</div>" +
-            //"<br>" +
-            '</div>' + "</div>";
+            result[index].theme + "</div>" + '</div>' +
+            "<br>" + "<button onclick='Redirect(" +
+            result[index].id +
+            ")'>Details</button>" + "</div>";
+
     }
     ul.innerHTML = li;
 }
